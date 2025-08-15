@@ -11,6 +11,9 @@
 [Mm]emoryCaptures/
 *.stacktrace
 
+# Plastic
+.plastic/
+
 # Cache and logs
 *.log
 *.tlog

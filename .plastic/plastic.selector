@@ -1,4 +1,0 @@
-repository "Cloud Repositories/TextMMO@2474096391705@cloud"
-  path "/"
-    br "/main"
-    co "/main"
