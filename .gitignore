@@ -1,0 +1,92 @@
+# =============== #
+# Unity Generated #
+# =============== #
+
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Bb]in/
+[Oo]bj/
+[Mm]emoryCaptures/
+*.stacktrace
+
+# Cache and logs
+*.log
+*.tlog
+*.svd
+*.pidb
+*.userprefs
+*.csproj
+*.sln
+*.suo
+
+# Rider / VS Code
+.idea/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Crash logs
+sysinfo.txt
+
+# Unity Collaborate
+.collab/
+
+# Visual Studio Code workspace
+*.code-workspace
+
+# Auto-generated meta data
+*.booproj
+*.pidb.meta
+
+# Unity Addressable Asset cache
+/Assets/AddressableAssetsData/*/AssetSettings.asset
+
+# =========== #
+# OS Specific #
+# =========== #
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ============ #
+# Unity Builds #
+# ============ #
+
+*.apk
+*.aab
+*.app
+*.exe
+*.ipa
+*.unitypackage
+
+# =========== #
+# Steamworks  #
+# =========== #
+
+steam_appid.txt
+
+# If using Steamworks SDK
+/Assets/Plugins/Steamworks.NET/ThirdParty/*
+/Assets/Plugins/Steamworks.NET/Editor/*
+
+# ========== #
+# Other SDKs #
+# ========== #
+
+# JetBrains Rider
+.idea/
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# Crashlytics
+crashlytics-build.properties
+fabric.properties
