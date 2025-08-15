@@ -12,24 +12,23 @@ public class ColyseusManager : MonoBehaviour
 
     [Header("Colyseus Settings")]
     public string serverUrl = "ws://localhost:2567";
-    public string username = "Pixyl";
-    public string password = "hunter2";
 
     private ColyseusClient client;
     private ColyseusRoom<LoginState> loginRoom;
     private ColyseusRoom<WorldState> worldRoom;
-
+    private bool localServer = false;
+    
     private void Awake()
     {
         // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -47,6 +46,14 @@ public class ColyseusManager : MonoBehaviour
     
     private async Task Login()
     {
+        var connectionUrl = serverUrl;
+        if (localServer)
+        {
+            connectionUrl = "ws://localhost:2567";
+        }
+        
+        client = new ColyseusClient(connectionUrl);
+        
         var roomOptions = new Dictionary<string, object>
         {
             { "handle", "Pixyl" },

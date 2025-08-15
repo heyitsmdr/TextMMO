@@ -49,7 +49,20 @@ public class TerminalInputHanlder : MonoBehaviour
     
     async Task ProcessCommand(string command)
     {
-        await ColyseusManager.Instance.SendCommand(command);
+        bool isProduction = !Application.isEditor && !Debug.isDebugBuild;
+        
         TextManager.Instance.AddLine("\n<color=white>::: " + command + "</color>");
+        
+        // Internal commands
+        if (!isProduction)
+        {
+            if (command.ToLower() == "dev")
+            {
+                TextManager.Instance.AddLine("Local development enabled.");
+                return;
+            }
+        }
+
+        await ColyseusManager.Instance.SendCommand(command);        
     }
 }

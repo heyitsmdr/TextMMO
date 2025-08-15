@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+    tags:
+      - 'v*'  # Match tags like v1.0, v1.2.3, etc.
 
 jobs:
   build:
@@ -34,6 +33,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
+          versioning: Semantic
 
       - name: Deploy to Steam
         uses: game-ci/steam-deploy@v3
@@ -41,7 +41,7 @@ jobs:
           username: ethryx
           configVdf: ${{ secrets.CONFIG_VDF}}          
           appId: 2960740
-          buildDescription: ${{ github.sha }}
+          buildDescription: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
           rootPath: build
           depot1Path: StandaloneWindows64
           releaseBranch: nightly

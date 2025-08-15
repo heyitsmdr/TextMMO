@@ -40,6 +40,8 @@ public class TextManager : MonoBehaviour
     {
         // Clear the text box
         text.text = "";
+        
+        AddLine("ArmeriaOS");
     }
 
     public void AddLine(string line)
