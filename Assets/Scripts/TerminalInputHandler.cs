@@ -58,11 +58,19 @@ public class TerminalInputHanlder : MonoBehaviour
         {
             if (command.ToLower() == "dev")
             {
+                ColyseusManager.Instance.SetLocal();
                 TextManager.Instance.AddLine("Local development enabled.");
+                
                 return;
             }
         }
 
+        if (command.ToLower() == "login")
+        {
+            _ = ColyseusManager.Instance.Login();
+            return;
+        }
+        
         await ColyseusManager.Instance.SendCommand(command);        
     }
 }

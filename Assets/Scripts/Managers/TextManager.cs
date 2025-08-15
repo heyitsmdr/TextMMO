@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Febucci.UI;
     
 public class TextManager : MonoBehaviour
@@ -40,10 +41,19 @@ public class TextManager : MonoBehaviour
     {
         // Clear the text box
         text.text = "";
-        
-        AddLine("ArmeriaOS");
+
+        _ = StartupText();
     }
 
+    async Task StartupText()
+    {
+        AddLine("ArmeriaOS v" + Application.version);
+        await Task.Delay(2000);
+        AddLine("Initializing terminal..");
+        await Task.Delay(1000);
+        AddLine("Ready for input.");
+    }
+    
     public void AddLine(string line)
     {
          // Add the line to the queue

@@ -32,25 +32,22 @@ public class ColyseusManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SetLocal()
     {
-        TextManager.Instance.AddLine("Connecting to mainframe..");
-        
-        client = new ColyseusClient(serverUrl);
-
-        TextManager.Instance.AddLine("Connected.");
-        TextManager.Instance.AddLine("Identify yourself.");
-        
-        _ = Login();
+        localServer = true;
     }
     
-    private async Task Login()
+    public async Task Login()
     {
         var connectionUrl = serverUrl;
         if (localServer)
         {
             connectionUrl = "ws://localhost:2567";
         }
+        
+        TextManager.Instance.AddLine("Connecting to mainframe..");
+        TextManager.Instance.AddLine("Connected.");
+        TextManager.Instance.AddLine("Identify yourself.");
         
         client = new ColyseusClient(connectionUrl);
         
