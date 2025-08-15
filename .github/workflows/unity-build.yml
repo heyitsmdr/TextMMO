@@ -34,3 +34,14 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
+
+      - name: Deploy to Steam
+        uses: game-ci/steam-deploy@v3
+        with:
+          username: ethryx
+          configVdf: ${{ secrets.CONFIG_VDF}}          
+          appId: 2960740
+          buildDescription: ${{ github.sha }}
+          rootPath: build
+          depot1Path: StandaloneWindows64
+          releaseBranch: nightly
