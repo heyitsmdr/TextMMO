@@ -78,6 +78,7 @@ public class ColyseusManager : MonoBehaviour
         worldRoom.OnMessage<TerminalMessageResponse>("terminal_msg", msg =>
         {
             TextManager.Instance.AddLine(msg.msg);
+            AudioManager.Instance.PlaySFX(SFX.TEXT_RESPONSE);
         });
 
         worldRoom.OnMessage<LoginSuccessResponse>("login_success", async data =>

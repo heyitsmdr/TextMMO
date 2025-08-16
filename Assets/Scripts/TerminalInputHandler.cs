@@ -65,7 +65,12 @@ public class TerminalInputHanlder : MonoBehaviour
             }
         }
 
-        if (command.ToLower() == "login")
+        if (command.ToLower() == "quit" || command.ToLower() == "exit")
+        {
+            _ = GameManager.Instance.QuitGame();
+            return;
+        }
+        else if (command.ToLower() == "login")
         {
             _ = ColyseusManager.Instance.Login();
             return;

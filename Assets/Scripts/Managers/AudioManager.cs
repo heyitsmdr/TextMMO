@@ -9,7 +9,9 @@ public enum SFX
 {
     POWER_ON = 0,
     GLITCH = 1,
-    BEEP = 2
+    BEEP = 2,
+    TEXT_RESPONSE = 3,
+    POWER_OFF = 4,
 }
 
 class SoundOptions
